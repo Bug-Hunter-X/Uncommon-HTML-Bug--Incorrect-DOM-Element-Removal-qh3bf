@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      // Incorrect way to remove an element
+      document.getElementById("myDiv").outerHTML = ""; //This will remove the div but cause a memory leak if there are any event listeners attached to it
+
+      //Correct way to remove an element
+      // const divToRemove = document.getElementById("myDiv");
+      // divToRemove.remove();
+    }
+  </script>
+</body>
+</html>
